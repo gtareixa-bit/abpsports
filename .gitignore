@@ -1,0 +1,32 @@
+# Dependencias
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Variables de entorno — CRÍTICO, NUNCA SUBIR
+.env
+.env.*
+!.env.example
+
+# Exportaciones de Airtable y material con datos personales
+data/*.csv
+data/*.json
+!data/*.ejemplo.json
+_revisar_privado/
+_to_delete/
+
+# Logs
+logs/*.log
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# IDE
+.vscode/
+.idea/
+.history/
+.env
