@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscripción legal online | ABP Sport Pontevedra</title>
+<meta name="description" content="Formaliza tu alta en ABP Sport Pontevedra 100% online: datos, cláusulas y documentación.">
+<link rel="canonical" href="https://abpsports.es/inscripcion-legal">
+<meta property="og:image" content="https://abpsports.es/img/color-patada-alta-infantil.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<script defer src="js/analytics.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class='logo' href='/'><img src="img/logo.png" alt="ABP Sport Pontevedra"></a>
+    <button class="menu-toggle" aria-label="Abrir menú" onclick="document.querySelector('.main-nav').classList.toggle('abierto')">☰</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href='/'>Inicio</a></li>
+        <li><a href='/sobre-nosotros'>Sobre nosotros</a></li>
+        <li><a href='/programa-inclusivo'>Eu Sí Podo</a></li>
+        <li><a href='/sedes'>Sedes</a></li>
+        <li><a href='/disciplinas'>Disciplinas</a></li>
+        <li><a href='/horarios'>Horarios</a></li>
+        <li><a href='/tienda'>Tienda</a></li>
+        <li><a href='/contacto'>Contacto</a></li>
+        <li><a class='nav-cta' href='/inscripcion'>Inscríbete</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb"><div class="container"><a href='/'>Inicio</a> / Inscripción</div></div>
+
+<section>
+  <div class="container">
+    <div class="titulo-seccion">
+      <span class="eyebrow">Inscripción 100% online</span>
+      <h1>Inscripción legal definitiva</h1>
+      <p>Formaliza tu alta completa sin venir al gimnasio. Si prefieres hacerlo en persona, usa la <a href='/inscripcion#reserva'>Reserva de plaza</a> y firmas todo en recepción.</p>
+    </div>
+    <form action='/gracias' method='POST' name='inscripcion-legal' enctype='multipart/form-data' data-netlify='true' netlify-honeypot='bot-field' data-secure>
+      <input type="hidden" name="form-name" value="inscripcion-legal">
+      <p style="position:absolute;left:-9999px;" aria-hidden="true"><label>No rellenar este campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <input type="hidden" name="_subject" value="Nueva inscripción LEGAL (con documentos) — ABP Sport">
+      <input type="hidden" name="tipo_formulario" value="Inscripción legal definitiva">
+      
+      <fieldset>
+        <legend>1. Datos personales del socio/a o competidor/a</legend>
+        <div class="form-row">
+          <div>
+            <label for="nombre_completo">Nombre y apellidos *</label>
+            <input data-validate type="text" id="nombre_completo" name="nombre_completo" required>
+          </div>
+          <div>
+            <label for="dni_nie">DNI / NIE / Pasaporte *</label>
+            <input data-validate type="text" id="dni_nie" name="dni_nie" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="alumno_nacimiento">Fecha de nacimiento *</label>
+            <input data-validate type="date" id="alumno_nacimiento" name="alumno_nacimiento" required onchange="comprobarEdad()">
+          </div>
+          <div>
+            <label for="fecha_alta">Fecha en la que quieres empezar *</label>
+            <input data-validate type="date" id="fecha_alta" name="fecha_alta" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="telefono">Teléfono *</label>
+            <input data-validate type="tel" id="telefono" name="telefono" required>
+          </div>
+          <div>
+            <label for="email">Email *</label>
+            <input data-validate type="email" id="email" name="email" required>
+          </div>
+        </div>
+        <label for="domicilio">Domicilio / Población *</label>
+        <input data-validate type="text" id="domicilio" name="domicilio" required>
+        <div class="form-row" style="margin-top:14px;">
+          <div>
+            <label for="contacto_emergencia">Contacto de emergencia *</label>
+            <input data-validate type="text" id="contacto_emergencia" name="contacto_emergencia" required>
+          </div>
+          <div>
+            <label for="telefono_emergencia">Teléfono de emergencia *</label>
+            <input data-validate type="tel" id="telefono_emergencia" name="telefono_emergencia" required>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset id="bloque_tutor" style="display:none;margin-top:20px;">
+        <legend>Datos del padre, madre o tutor/a legal</legend>
+        <p style="font-size:.85rem;color:#5c5c5c;margin-bottom:12px;">Obligatorio porque el alumno/a es menor de 18 años. Los menores de 14 años no pueden prestar su propio consentimiento (art. 7 LOPD-GDD): debe hacerlo su representante legal.</p>
+        <div class="form-row">
+          <div>
+            <label for="tutor_nombre">Nombre y apellidos *</label>
+            <input data-validate type="text" id="tutor_nombre" name="tutor_nombre">
+          </div>
+          <div>
+            <label for="tutor_dni">DNI/NIE *</label>
+            <input data-validate type="text" id="tutor_dni" name="tutor_dni">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset style="margin-top:20px;">
+        <legend>2. Perfil deportivo y licencia federativa (Xunta de Galicia)</legend>
+        <div class="form-row">
+          <div>
+            <label for="tipo_usuario">Perfil de usuario/a *</label>
+            <select data-validate id="tipo_usuario" name="tipo_usuario" required>
+              <option value="">Selecciona una opción</option>
+              <option value="Socio Ocio / Mantenimiento">Socio Ocio / Mantenimiento</option>
+              <option value="Competidor Amateur">Competidor Amateur</option>
+              <option value="Competidor Profesional">Competidor Profesional</option>
+              <option value="Menor / Infantil">Menor / Infantil</option>
+            </select>
+          </div>
+          <div>
+            <label for="sede">Sede *</label>
+            <select data-validate id="sede" name="sede" required>
+              <option value="Av. de Lugo 6" selected>Av. de Lugo, 6</option>
+            </select>
+          </div>
+        </div>
+        <label>Disciplinas de interés * <span style="font-weight:400;color:var(--gris);font-size:.85rem;">(puedes marcar más de una)</span></label>
+        <div class="form-row" style="margin-bottom:14px;">
+          <label class="checkbox-line"><input type="checkbox" name="disciplinas" value="Kick Boxing"> Kick Boxing</label>
+          <label class="checkbox-line"><input type="checkbox" name="disciplinas" value="Boxeo"> Boxeo</label>
+        </div>
+        <div class="form-row" style="margin-bottom:14px;">
+          <label class="checkbox-line"><input type="checkbox" name="disciplinas" value="Judo"> Judo</label>
+          <label class="checkbox-line"><input type="checkbox" name="disciplinas" value="Krav Maga"> Krav Maga</label>
+        </div>
+        <div class="form-row">
+          <label class="checkbox-line"><input type="checkbox" name="disciplinas" value="MMA"> MMA</label>
+          <div>
+            <label for="licencia_federativa">Licencia Galega / Seguro</label>
+            <select data-validate id="licencia_federativa" name="licencia_federativa">
+              <option value="Sí">Sí, ya la tengo</option>
+              <option value="En trámite">En trámite</option>
+              <option value="No">No / No aplica</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset style="margin-top:20px;">
+        <legend>3. Declaración de salud y aptitud física</legend>
+        <label for="notas_medicas">Observaciones / lesiones / alergias a notificar al cuadro técnico</label>
+        <textarea data-validate id="notas_medicas" name="notas_medicas" placeholder="Déjalo en blanco si no aplica"></textarea>
+        <label class="checkbox-line" style="margin-top:12px;"><input type="checkbox" name="declara_aptitud_fisica" required> Declaro (o declara mi tutor/a legal, si soy menor) encontrarme en aptitud física adecuada para la práctica de deportes de contacto y entrenamiento funcional, y me comprometo a notificar cualquier patología o lesión sobrevenida. *</label>
+        <label class="checkbox-line"><input type="checkbox" name="consiento_salud"> Si he indicado datos de salud arriba (lesiones, alergias), autorizo expresamente su tratamiento, exclusivamente para garantizar la seguridad durante la práctica deportiva (art. 9 RGPD, dato de categoría especial).</label>
+      </fieldset>
+
+      <fieldset style="margin-top:20px;">
+        <legend>4. Exención de responsabilidad y asunción de riesgos</legend>
+        <div class="aviso-caja" style="margin-bottom:14px;">
+          Asumo los riesgos inherentes a la práctica de deportes de contacto y artes marciales (fricción, contusiones, impactos y esfuerzo físico de alta intensidad). Es obligatorio el uso de equipamiento de protección homologado (protector bucal, guantes, espinilleras, vendas, casco en sparring y coquilla); su incumplimiento exime a ABP Sport de cualquier eventualidad, conforme a la Ley 3/2012 do Deporte de Galicia.
+        </div>
+        <label class="checkbox-line"><input type="checkbox" name="acepta_exencion_responsabilidad" required> He leído y acepto la cláusula de asunción de riesgos y exención de responsabilidad. *</label>
+      </fieldset>
+
+      <fieldset style="margin-top:20px;">
+        <legend>5. Protección de datos y derechos de imagen</legend>
+        <div class="aviso-caja" style="margin-bottom:14px;">
+          <strong>Responsable:</strong> ABP Sport (José Manuel Santiago Pérez). <strong>Finalidad:</strong> gestionar tu inscripción, la actividad deportiva y las comunicaciones del club. <strong>Legitimación:</strong> tu consentimiento. <strong>Destinatarios:</strong> no se ceden datos a terceros salvo obligación legal (ej. federación deportiva para licencias). <strong>Derechos:</strong> acceso, rectificación, supresión, oposición, limitación y portabilidad, escribiendo a abpclub.pontevedra@gmail.com. Más información en nuestra <a href='/privacidad'>Política de Privacidad</a>.
+        </div>
+        <label>Tratamiento de derechos de imagen *</label>
+        <div class="form-row" style="margin-bottom:14px;">
+          <label class="checkbox-line"><input type="radio" name="derechos_imagen" value="Autorizado" required> AUTORIZO la captación de fotos/vídeos para difusión en canales oficiales del club</label>
+          <label class="checkbox-line"><input type="radio" name="derechos_imagen" value="No autorizado" required> NO AUTORIZO</label>
+        </div>
+        <label class="checkbox-line"><input type="checkbox" name="consiento_datos" required> He leído y acepto la Política de Privacidad y consiento el tratamiento de mis datos (o los del alumno/a menor a mi cargo) para gestionar la inscripción. *</label>
+        <label class="checkbox-line"><input type="checkbox" name="consiento_federacion"> Autorizo la cesión de datos a la federación deportiva correspondiente, exclusivamente para la tramitación de la licencia federativa (si procede).</label>
+        <label class="checkbox-line"><input type="checkbox" name="consiento_comunicaciones"> Deseo recibir comunicaciones informativas y comerciales de ABP Sport por email o WhatsApp (opcional).</label>
+      </fieldset>
+
+      <fieldset style="margin-top:20px;">
+        <legend>6. Documentos (obligatorio para la inscripción legal)</legend>
+        <label for="documento_contrato_firmado">Contrato de Alta, Exención y RGPD firmado <span style="font-weight:400;color:var(--gris);font-size:.82rem;">(opcional: si aún no lo tienes, lo firmas en recepción el primer día)</span></label>
+        <input type="file" id="documento_contrato_firmado" name="documento_contrato_firmado" accept="application/pdf,image/*">
+        <label for="documento_dni" style="margin-top:14px;display:block;">DNI / NIE / Pasaporte (anverso y reverso) * <span style="font-weight:400;color:var(--gris);font-size:.82rem;">(fotos o un PDF — máx. 8 MB entre todos los archivos)</span></label>
+        <input type="file" id="documento_dni" name="documento_dni" accept="application/pdf,image/*" multiple required>
+        <label class="checkbox-line" style="margin-top:14px;"><input type="checkbox" name="confirma_inscripcion_definitiva" required> Confirmo que los datos y documentos adjuntos son correctos y completos, y que deseo formalizar mi inscripción definitiva en ABP Sport Pontevedra. *</label>
+      </fieldset>
+
+      <button type="submit" class="btn btn-primario" style="margin-top:26px;">Enviar inscripción definitiva</button>
+    </form>
+    <div class="card" style="margin-top:40px;">
+      <h3>Pago de matrícula / primera cuota</h3>
+      <p>Una vez recibamos tu inscripción, confirmaremos tu plaza y te enviaremos el enlace de pago seguro (Stripe) por email o WhatsApp.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+function comprobarEdad(){
+  var fecha = document.getElementById('alumno_nacimiento').value;
+  var bloque = document.getElementById('bloque_tutor');
+  var camposTutor = bloque.querySelectorAll('input');
+  if(!fecha){ bloque.style.display='none'; return; }
+  var hoy = new Date();
+  var nacimiento = new Date(fecha);
+  var edad = hoy.getFullYear() - nacimiento.getFullYear();
+  var m = hoy.getMonth() - nacimiento.getMonth();
+  if(m < 0 || (m === 0 && hoy.getDate() < nacimiento.getDate())){ edad--; }
+  if(edad < 18){
+    bloque.style.display='block';
+    camposTutor.forEach(function(c){ c.required = true; });
+  } else {
+    bloque.style.display='none';
+    camposTutor.forEach(function(c){ c.required = false; });
+  }
+}
+// No permitir elegir una fecha de inicio pasada
+document.addEventListener('DOMContentLoaded', function(){
+  var el = document.getElementById('fecha_alta');
+  if (el) el.min = new Date().toISOString().split('T')[0];
+});
+</script>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">© <span id="anio"></span> ABP Sport. Todos los derechos reservados. &nbsp;|&nbsp; <a href='/aviso-legal'>Aviso legal</a> &nbsp;|&nbsp; <a href='/privacidad'>Privacidad</a> &nbsp;|&nbsp; <a href='/cookies'>Cookies</a></div>
+  </div>
+</footer>
+<script>document.getElementById('anio').textContent = new Date().getFullYear();</script>
+<script src="js/site.js"></script>
+<script src="js/carrito.js"></script>
+<script src="/1-security-fixes.js"></script>
+<script src="/6-app-improvements.js"></script>
+</body>
+</html>

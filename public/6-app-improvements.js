@@ -10,6 +10,8 @@
     nombre: { re: /^[A-Za-zÀ-ÿñÑ' -]{2,80}$/, msg: 'Nombre no válido (2-80 letras).' },
     alumno_nombre: { re: /^[A-Za-zÀ-ÿñÑ' -]{2,80}$/, msg: 'Nombre no válido (2-80 letras).' },
     tutor_nombre: { re: /^[A-Za-zÀ-ÿñÑ' -]{2,80}$/, msg: 'Nombre no válido (2-80 letras).' },
+    dni_nie: { re: /^([0-9]{8}[A-Za-z]|[XYZxyz][0-9]{7}[A-Za-z]|[A-Za-z0-9]{6,12})$/, msg: 'Documento no válido.' },
+    telefono_emergencia: { re: /^\+?[0-9 ]{9,15}$/, msg: 'Teléfono no válido.' },
     tutor_dni: { re: /^([0-9]{8}[A-Za-z]|[XYZxyz][0-9]{7}[A-Za-z])$/, msg: 'DNI/NIE no válido.' },
     email: { re: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, msg: 'Email no válido.' },
     telefono: { re: /^\+?[0-9 ]{9,15}$/, msg: 'Teléfono no válido.' },
