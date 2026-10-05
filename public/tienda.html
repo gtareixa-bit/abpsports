@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda de equipación | ABP Sport Pontevedra</title>
+<meta name="description" content="Guantes, espinilleras, protector bucal y ropa técnica ABP Sport, Custom Fighter y OPRO. Compra tu equipación de boxeo y kickboxing en Pontevedra, recogida en el club.">
+<link rel="canonical" href="https://abpsports.es/tienda.html">
+<meta property="og:image" content="https://abpsports.es/img/color-patada-alta-infantil.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<script defer src="js/analytics.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class='logo' href='/'><img src="img/logo.png" alt="ABP Sport Pontevedra"></a>
+    <button class="menu-toggle" aria-label="Abrir menú" onclick="document.querySelector('.main-nav').classList.toggle('abierto')">☰</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href='/'>Inicio</a></li>
+        <li><a href='/sobre-nosotros'>Sobre nosotros</a></li>
+        <li><a href='/programa-inclusivo'>Eu Sí Podo</a></li>
+        <li><a href='/sedes'>Sedes</a></li>
+        <li><a href='/disciplinas'>Disciplinas</a></li>
+        <li><a href='/horarios'>Horarios</a></li>
+        <li><a href='/tienda'>Tienda</a></li>
+        <li><a href='/contacto'>Contacto</a></li>
+        <li><a class='nav-cta' href='/inscripcion'>Inscríbete</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb"><div class="container"><a href='/'>Inicio</a> / Tienda</div></div>
+
+<div id="aviso-pedido-enviado" class="container" style="display:none;margin-top:24px;">
+  <div class="aviso-caja" style="background:#eafbea;border-color:#b6e6b6;color:#1c5c1c;">
+    <span class="icon-wrap"><svg class="icon-inline" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#1c6b3c"/><path d="m7 12.5 3.2 3.2L17 9" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Pedido enviado correctamente. En breve os contactamos para confirmar disponibilidad y forma de pago (Bizum, efectivo en el club o enlace de pago seguro).
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="titulo-seccion">
+      <span class="eyebrow">Equipación</span>
+      <h1>Tienda ABP Sport</h1>
+      <p>Guantes, espinilleras, protector bucal y ropa técnica — equipación ABP y equipo profesional Custom Fighter y OPRO, la misma que usan nuestros competidores. Recógelo en el club, sin gastos de envío.</p>
+    </div>
+
+    <div class="filtros-tienda">
+      <button class="filtro-btn activo" data-filtro="todos">Todo</button>
+      <button class="filtro-btn" data-filtro="ABP">Equipación ABP</button>
+      <button class="filtro-btn" data-filtro="Otras marcas">Custom Fighter y otras marcas</button>
+    </div>
+
+    <div class="grid-productos">
+
+      <div class="producto" data-marca="ABP">
+        <div class="foto"><span class="marca-tag">ABP</span><img src="img/color-esquineras-logo-abp.jpg" alt="Guantes de boxeo y kickboxing ABP Sport"></div>
+        <div class="info">
+          <h3>Guantes Boxeo/Kickboxing ABP</h3>
+          <select aria-label="Onzas">
+            <option>8 oz</option><option selected>10 oz</option><option>12 oz</option><option>14 oz</option>
+          </select>
+          <div class="precio">34,90 €</div>
+          <button class="btn btn-primario btn-add-carrito" data-id="guantes-abp" data-nombre="Guantes Boxeo/Kickboxing ABP" data-precio="34.90" data-img="img/color-esquineras-logo-abp.jpg">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-marca="Otras marcas">
+        <div class="foto"><span class="marca-tag otras">Custom Fighter</span><img src="img/tienda-guantes-pro-classic.jpg" alt="Guantes de boxeo Custom Fighter Pro Classic"></div>
+        <div class="info">
+          <h3>Guantes Custom Fighter Pro Classic</h3>
+          <select aria-label="Onzas">
+            <option>12 oz</option><option selected>14 oz</option><option>16 oz</option><option>18 oz</option>
+          </select>
+          <div class="precio">70,00 €</div>
+          <button class="btn btn-primario btn-add-carrito" data-id="guantes-cf-pro-classic" data-nombre="Guantes Custom Fighter Pro Classic" data-precio="70.00" data-img="img/tienda-guantes-pro-classic.jpg">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-marca="Otras marcas">
+        <div class="foto"><span class="marca-tag otras">Custom Fighter</span><img src="img/tienda-guantes-star.jpg" alt="Guantes de boxeo Custom Fighter Star Series, ideales para iniciación"></div>
+        <div class="info">
+          <h3>Guantes Custom Fighter Star Series</h3>
+          <select aria-label="Onzas">
+            <option>8 oz</option><option selected>10 oz</option><option>12 oz</option><option>14 oz</option>
+          </select>
+          <div class="precio">30,00 €</div>
+          <button class="btn btn-primario btn-add-carrito" data-id="guantes-cf-star" data-nombre="Guantes Custom Fighter Star Series" data-precio="30.00" data-img="img/tienda-guantes-star.jpg">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-marca="ABP">
+        <div class="foto"><span class="marca-tag">ABP</span><img src="img/color-ninos-cinturones-abp.jpg" alt="Espinilleras ABP Sport"></div>
+        <div class="info">
+          <h3>Espinilleras ABP</h3>
+          <select aria-label="Talla">
+            <option>S</option><option selected>M</option><option>L</option><option>XL</option>
+          </select>
+          <div class="precio">27,90 €</div>
+          <button class="btn btn-primario btn-add-carrito" data-id="espinilleras-abp" data-nombre="Espinilleras ABP" data-precio="27.90" data-img="img/color-ninos-cinturones-abp.jpg">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-marca="Otras marcas">
+        <div class="foto"><span class="marca-tag otras">Custom Fighter</span><img src="img/tienda-espinilleras-steel-leg.jpg" alt="Espinilleras Custom Fighter Steel Leg"></div>
+        <div class="info">
+          <h3>Espinilleras Custom Fighter Steel Leg</h3>
+          <select aria-label="Talla">
+            <option>S</option><option selected>M</option><option>L</option><option>XL</option>
+          </select>
+          <div class="precio">50,00 €</div>
+          <button class="btn btn-primario btn-add-carrito" data-id="espinilleras-cf-steel-leg" data-nombre="Espinilleras Custom Fighter Steel Leg" data-precio="50.00" data-img="img/tienda-espinilleras-steel-leg.jpg">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-marca="Otras marcas">
+        <div class="foto"><span class="marca-tag otras">OPRO</span><img src="img/tienda-bucal-opro.jpg" alt="Protector bucal OPRO Snap-Fit"></div>
+        <div class="info">
+          <h3>Protector bucal OPRO Snap-Fit</h3>
+          <select aria-label="Tipo">
+            <option>Adulto</option><option>Infantil</option>
+          </select>
+          <div class="precio">6,00 €</div>
+          <button class="btn btn-primario btn-add-carrito" data-id="bucal-opro" data-nombre="Protector bucal OPRO Snap-Fit" data-precio="6.00" data-img="img/tienda-bucal-opro.jpg">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-marca="Otras marcas">
+        <div class="foto"><span class="marca-tag otras">Custom Fighter</span><img src="img/tienda-vendas.jpg" alt="Vendas de manos Custom Fighter"></div>
+        <div class="info">
+          <h3>Vendas de manos Custom Fighter</h3>
+          <select aria-label="Longitud">
+            <option>2,5 m</option><option selected>3,5 m</option><option>5 m</option>
+          </select>
+          <div class="precio">8,00 €</div>
+          <button class="btn btn-primario btn-add-carrito" data-id="vendas-cf" data-nombre="Vendas de manos Custom Fighter" data-precio="8.00" data-img="img/tienda-vendas.jpg">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-marca="Otras marcas">
+        <div class="foto"><span class="marca-tag otras">Custom Fighter</span><img src="img/tienda-coquilla.jpg" alt="Coquilla básica Custom Fighter"></div>
+        <div class="info">
+          <h3>Coquilla básica Custom Fighter</h3>
+          <select aria-label="Talla">
+            <option>S</option><option selected>M</option><option>L</option><option>XL</option>
+          </select>
+          <div class="precio">10,00 €</div>
+          <button class="btn btn-primario btn-add-carrito" data-id="coquilla-cf" data-nombre="Coquilla básica Custom Fighter" data-precio="10.00" data-img="img/tienda-coquilla.jpg">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-marca="ABP">
+        <div class="foto"><span class="marca-tag">ABP</span><img src="img/bn-vendas-manos-detalle.jpg" alt="Vendas de manos ABP"></div>
+        <div class="info">
+          <h3>Vendas de manos ABP</h3>
+          <select aria-label="Longitud">
+            <option>2,5 m</option><option selected>4,5 m</option>
+          </select>
+          <div class="precio">7,50 €</div>
+          <button class="btn btn-primario btn-add-carrito" data-id="vendas-abp" data-nombre="Vendas de manos ABP" data-precio="7.50" data-img="img/bn-vendas-manos-detalle.jpg">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-marca="ABP">
+        <div class="foto marca-placeholder" style="display:flex;align-items:center;justify-content:center;background:var(--negro);"><span class="marca-tag">ABP</span><img src="img/logo.png" alt="Camiseta técnica ABP Sport" style="width:88px;height:88px;object-fit:contain;"></div>
+        <div class="info">
+          <h3>Camiseta técnica ABP</h3>
+          <select aria-label="Talla">
+            <option>S</option><option selected>M</option><option>L</option><option>XL</option>
+          </select>
+          <div class="precio">18,90 €</div>
+          <button class="btn btn-primario btn-add-carrito" data-id="camiseta-abp" data-nombre="Camiseta técnica ABP" data-precio="18.90" data-img="img/logo.png">Añadir al carrito</button>
+        </div>
+      </div>
+
+      <div class="producto" data-marca="ABP">
+        <div class="foto marca-placeholder" style="display:flex;align-items:center;justify-content:center;background:var(--rojo-oscuro);"><span class="marca-tag">ABP</span><img src="img/logo.png" alt="Sudadera ABP Sport" style="width:88px;height:88px;object-fit:contain;"></div>
+        <div class="info">
+          <h3>Sudadera ABP</h3>
+          <select aria-label="Talla">
+            <option>S</option><option selected>M</option><option>L</option><option>XL</option>
+          </select>
+          <div class="precio">32,90 €</div>
+          <button class="btn btn-primario btn-add-carrito" data-id="sudadera-abp" data-nombre="Sudadera ABP" data-precio="32.90" data-img="img/logo.png">Añadir al carrito</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="checkout">
+  <div class="container" style="max-width:640px;">
+    <div class="titulo-seccion">
+      <span class="eyebrow">Finalizar pedido</span>
+      <h2>Confirma tu pedido</h2>
+      <p>Revisamos disponibilidad y os contactamos para confirmar el pago (Bizum, efectivo en el club o enlace seguro) y la recogida o entrega.</p>
+    </div>
+
+    <div class="resumen-pedido">
+      <strong>Resumen del pedido</strong>
+      <ul class="resumen-pedido-lista"><li>No hay productos en el carrito todavía.</li></ul>
+      <div style="display:flex;justify-content:space-between;font-weight:800;margin-top:10px;">
+        <span>Total</span><span class="resumen-pedido-total">0,00 €</span>
+      </div>
+    </div>
+
+    <!-- Mismo mecanismo low-cost que el resto de formularios: Formspree -->
+    <form action='/gracias-pedido' method='POST' name='pedido-tienda' data-netlify='true' netlify-honeypot='bot-field'>
+      <input type="hidden" name="form-name" value="pedido-tienda">
+      <p style="position:absolute;left:-9999px;" aria-hidden="true">
+        <label>No rellenar este campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+      </p>
+      <input type="hidden" id="pedido_detalle" name="pedido_detalle" value="">
+      <div class="form-row">
+        <div>
+          <label for="t_nombre">Nombre y apellidos *</label>
+          <input type="text" id="t_nombre" name="nombre" required>
+        </div>
+        <div>
+          <label for="t_telefono">Teléfono *</label>
+          <input type="tel" id="t_telefono" name="telefono" required>
+        </div>
+      </div>
+      <label for="t_email">Email *</label>
+      <input type="email" id="t_email" name="email" required>
+      <label for="t_sede">Sede donde recoger el pedido</label>
+      <select id="t_sede" name="sede_recogida">
+        <option value="Av. de Lugo 6" selected>Av. de Lugo, 6</option>
+      </select>
+      <label class="checkbox-line"><input type="checkbox" name="consiento_datos" required><span>He leído y acepto la <a href='/privacidad'>Política de Privacidad</a> para gestionar este pedido. *</span></label>
+      <button type="submit" class="btn btn-primario">Enviar pedido</button>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">© <span id="anio"></span> ABP Sport. Todos los derechos reservados. &nbsp;|&nbsp; <a href='/aviso-legal'>Aviso legal</a> &nbsp;|&nbsp; <a href='/privacidad'>Privacidad</a> &nbsp;|&nbsp; <a href='/cookies'>Cookies</a></div>
+  </div>
+</footer>
+<script>document.getElementById('anio').textContent = new Date().getFullYear();</script>
+<script src="js/site.js"></script>
+<script src="js/carrito.js"></script>
+<script>
+(function(){
+  var botones = document.querySelectorAll('.filtro-btn');
+  var productos = document.querySelectorAll('.producto');
+  botones.forEach(function(b){
+    b.addEventListener('click', function(){
+      botones.forEach(function(x){ x.classList.remove('activo'); });
+      b.classList.add('activo');
+      var f = b.dataset.filtro;
+      productos.forEach(function(p){
+        p.style.display = (f === 'todos' || p.dataset.marca === f) ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
