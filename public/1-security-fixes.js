@@ -52,7 +52,7 @@
 
   function looksLikeBot(form) {
     var elapsed = Date.now() - loadTime;
-    var honeypot = form && form.querySelector('input[name="website"]');
+    var honeypot = form && form.querySelector('input[name="website"], input[name="bot-field"]');
     if (honeypot && honeypot.value) return true;
     if (elapsed < 3000) return true;          // demasiado rápido
     if (interactions < 2) return true;        // sin interacción humana
@@ -70,7 +70,8 @@
 
   function injectHiddenFields() {
     var token = getToken();
-    document.querySelectorAll('form').forEach(function (f) {
+    // Solo formularios que van a la función propia; Netlify Forms no necesita estos campos
+    document.querySelectorAll('form[action*="/.netlify/functions/handler"]').forEach(function (f) {
       var c = f.querySelector('input[name="csrf_token"]');
       if (!c) { c = document.createElement('input'); c.type = 'hidden'; c.name = 'csrf_token'; f.appendChild(c); }
       c.value = token;

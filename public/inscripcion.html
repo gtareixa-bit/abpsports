@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscripción online | ABP Sport Pontevedra</title>
+<meta name="description" content="Inscríbete online en ABP Sport Pontevedra. Reserva tu plaza en nuestra sede de Av. de Lugo, 6 — plazas limitadas. Formulario seguro conforme al RGPD.">
+<link rel="canonical" href="https://abpsports.es/inscripcion.html">
+<meta property="og:image" content="https://abpsports.es/img/color-patada-alta-infantil.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<script defer src="js/analytics.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class='logo' href='/'><img src="img/logo.png" alt="ABP Sport Pontevedra"></a>
+    <button class="menu-toggle" aria-label="Abrir menú" onclick="document.querySelector('.main-nav').classList.toggle('abierto')">☰</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href='/'>Inicio</a></li>
+        <li><a href='/sobre-nosotros'>Sobre nosotros</a></li>
+        <li><a href='/programa-inclusivo'>Eu Sí Podo</a></li>
+        <li><a href='/sedes'>Sedes</a></li>
+        <li><a href='/disciplinas'>Disciplinas</a></li>
+        <li><a href='/horarios'>Horarios</a></li>
+        <li><a href='/tienda'>Tienda</a></li>
+        <li><a href='/contacto'>Contacto</a></li>
+        <li><a class='nav-cta' href='/inscripcion'>Inscríbete</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb"><div class="container"><a href='/'>Inicio</a> / Inscripción</div></div>
+
+<section>
+  <div class="container">
+    <div class="titulo-seccion">
+      <span class="eyebrow">Inscripción</span>
+      <h1>Dos formas de apuntarte</h1>
+      <p>Elige la que prefieras. Ambas dan acceso a tu primera clase.</p>
+    </div>
+
+    <div class="grid-2" style="align-items:stretch;margin-bottom:60px;">
+      <div class="card">
+        <span class="eyebrow-destacado" style="background:var(--rojo);color:var(--blanco);">100% online</span>
+        <h3 style="margin-top:14px;">Inscripción legal definitiva</h3>
+        <p style="color:var(--gris);margin:12px 0 20px;">Formaliza tu alta completa sin venir al gimnasio: rellena tus datos, acepta las cláusulas del contrato y adjunta el contrato firmado + tu DNI.</p>
+        <a class='btn btn-primario' href='/inscripcion-legal'>Inscribirme online</a>
+      </div>
+      <div class="card">
+        <span class="eyebrow-destacado" style="background:var(--gris-claro);color:var(--negro);">En el gimnasio</span>
+        <h3 style="margin-top:14px;">Reserva de plaza</h3>
+        <p style="color:var(--gris);margin:12px 0 20px;">Agenda tu primera clase en 30 segundos. El contrato, el RGPD completo y la copia del DNI se firman en persona en recepción.</p>
+        <a href="#reserva" class="btn btn-secundario" style="color:var(--rojo);border-color:var(--rojo);">Reservar plaza</a>
+      </div>
+    </div>
+
+    <div class="titulo-seccion" id="reserva">
+      <span class="eyebrow">Reserva de plaza</span>
+      <h2>Agenda tu primera clase</h2>
+      <p>Completa el formulario. Si el alumno es menor de edad, deberá completarlo su madre, padre o tutor/a legal. El resto del papeleo (contrato, RGPD completo, DNI) se firma en persona el día de la clase.</p>
+    </div>
+
+    <!--
+      FORMULARIOS · Netlify Forms (migrado 23/09/2026)
+      1) Este <form> lo captura Netlify Forms: 100 envios/mes en plan gratuito,
+         sin terceros fuera de la UE y sin depender de Formspree (que compartia
+         un unico endpoint de 50/mes entre inscripcion + contacto + tienda).
+      2) Los envios se ven en  app.netlify.com -> abpsports.es -> Forms.
+         Conviene activar el aviso por email en Forms > Submission notifications,
+         o no se entera nadie de que ha entrado una inscripcion.
+      3) "bot-field" es un honeypot antispam: invisible para las personas.
+      4) El pago de matricula o primera cuota se hace aparte con Stripe,
+         asi no se manejan tarjetas ni datos bancarios desde la web.
+-->
+    <form action='/gracias' method='POST' name='inscripcion' data-netlify='true' netlify-honeypot='bot-field' data-secure>
+      <input type="hidden" name="form-name" value="inscripcion">
+      <p style="position:absolute;left:-9999px;" aria-hidden="true">
+        <label>No rellenar este campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+      </p>
+      <input type="hidden" name="_subject" value="Nueva inscripción ABP Sport">
+
+      <fieldset>
+        <legend>Datos del alumno/a</legend>
+        <div class="form-row">
+          <div>
+            <label for="alumno_nombre">Nombre y apellidos *</label>
+            <input data-validate type="text" id="alumno_nombre" name="alumno_nombre" required>
+          </div>
+          <div>
+            <label for="alumno_nacimiento">Fecha de nacimiento *</label>
+            <input data-validate type="date" id="alumno_nacimiento" name="alumno_nacimiento" required onchange="comprobarEdad()">
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="sede">Sede *</label>
+            <select data-validate id="sede" name="sede" required>
+              <option value="Av. de Lugo 6" selected>Av. de Lugo, 6</option>
+            </select>
+          </div>
+          <div>
+            <label for="disciplina">Disciplina *</label>
+            <select data-validate id="disciplina" name="disciplina" required>
+              <option value="">Selecciona una disciplina</option>
+              <option>Kick Boxing</option>
+              <option>Boxeo</option>
+              <option>Judo</option>
+              <option>Krav Maga</option>
+              <option>MMA</option>
+              <option>Clases personales</option>
+              <option>No lo tengo claro, que me asesoren</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="fecha_alta">Fecha en la que quieres empezar *</label>
+            <input data-validate type="date" id="fecha_alta" name="fecha_alta" required>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset id="bloque_tutor" style="display:none;">
+        <legend>Datos del padre, madre o tutor/a legal</legend>
+        <p style="font-size:.85rem;color:#5c5c5c;margin-bottom:12px;">Obligatorio porque el alumno/a es menor de 18 años. Los menores de 14 años no pueden prestar su propio consentimiento (art. 7 LOPD-GDD): debe hacerlo su representante legal.</p>
+        <div class="form-row">
+          <div>
+            <label for="tutor_nombre">Nombre y apellidos *</label>
+            <input data-validate type="text" id="tutor_nombre" name="tutor_nombre">
+          </div>
+          <div>
+            <label for="tutor_dni">DNI/NIE *</label>
+            <input data-validate type="text" id="tutor_dni" name="tutor_dni">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Datos de contacto</legend>
+        <div class="form-row">
+          <div>
+            <label for="email">Email *</label>
+            <input data-validate type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="telefono">Teléfono *</label>
+            <input data-validate type="tel" id="telefono" name="telefono" required>
+          </div>
+        </div>
+        <label for="observaciones">Observaciones (lesiones, alergias, experiencia previa...)</label>
+        <textarea data-validate id="observaciones" name="observaciones"></textarea>
+        <label class="checkbox-line"><input type="checkbox" name="consiento_salud"><span>Si has indicado datos de salud arriba (lesiones, alergias), autorizo expresamente su tratamiento, exclusivamente para garantizar la seguridad durante la práctica deportiva. Es un dato de categoría especial (art. 9 RGPD) y requiere este consentimiento específico, distinto del general.</span></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Protección de datos (RGPD / LOPD-GDD)</legend>
+        <div class="aviso-caja" style="margin-bottom:14px;">
+          <strong>Responsable:</strong> ABP Sport (José Manuel Santiago Pérez). <strong>Finalidad:</strong> gestionar tu inscripción, la actividad deportiva y las comunicaciones del club. <strong>Legitimación:</strong> tu consentimiento. <strong>Destinatarios:</strong> no se ceden datos a terceros salvo obligación legal (ej. federación deportiva para licencias). <strong>Derechos:</strong> acceso, rectificación, supresión, oposición, limitación y portabilidad, escribiendo a abpclub.pontevedra@gmail.com. Más información en nuestra <a href='/privacidad'>Política de Privacidad</a>.
+        </div>
+        <label class="checkbox-line"><input type="checkbox" name="consiento_datos" required><span>He leído y acepto la Política de Privacidad y consiento el tratamiento de mis datos (o los del alumno/a menor a mi cargo) para gestionar la inscripción. *</span></label>
+        <label class="checkbox-line"><input type="checkbox" name="consiento_federacion"><span>Autorizo la cesión de datos a la federación deportiva correspondiente, exclusivamente para la tramitación de la licencia federativa (si procede).</span></label>
+        <label class="checkbox-line"><input type="checkbox" name="consiento_imagen"><span>Autorizo el uso de fotografías/vídeos del alumno/a en redes sociales y web del club con fines promocionales (opcional, revocable en cualquier momento).</span></label>
+        <label class="checkbox-line"><input type="checkbox" name="consiento_comunicaciones"><span>Deseo recibir comunicaciones informativas y comerciales de ABP Sport por email o WhatsApp (opcional).</span></label>
+      </fieldset>
+
+      <button type="submit" class="btn btn-primario">Enviar inscripción</button>
+    </form>
+
+    <div class="card" style="margin-top:40px;">
+      <h3>2) Pago de matrícula / primera cuota</h3>
+      <p style="margin-bottom:16px;">Una vez recibamos tu inscripción, confirmaremos plaza y te facilitaremos el enlace de pago seguro (Stripe). También puedes adelantarlo aquí:</p>
+      <a href="https://buy.stripe.com/4gM28j9vxbQdb791P718c00" class="btn btn-primario" target="_blank" rel="noopener">Pagar matrícula (Stripe · pago seguro)</a>
+    </div>
+  </div>
+</section>
+
+<script>
+function comprobarEdad(){
+  var fecha = document.getElementById('alumno_nacimiento').value;
+  var bloque = document.getElementById('bloque_tutor');
+  var camposTutor = bloque.querySelectorAll('input');
+  if(!fecha){ bloque.style.display='none'; return; }
+  var hoy = new Date();
+  var nacimiento = new Date(fecha);
+  var edad = hoy.getFullYear() - nacimiento.getFullYear();
+  var m = hoy.getMonth() - nacimiento.getMonth();
+  if(m < 0 || (m === 0 && hoy.getDate() < nacimiento.getDate())){ edad--; }
+  if(edad < 18){
+    bloque.style.display='block';
+    camposTutor.forEach(function(c){ c.required = true; });
+  } else {
+    bloque.style.display='none';
+    camposTutor.forEach(function(c){ c.required = false; });
+  }
+}
+// No permitir elegir una fecha de inicio pasada
+document.addEventListener('DOMContentLoaded', function(){
+  var el = document.getElementById('fecha_alta');
+  if (el) el.min = new Date().toISOString().split('T')[0];
+});
+</script>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">© <span id="anio"></span> ABP Sport. Todos los derechos reservados. &nbsp;|&nbsp; <a href='/aviso-legal'>Aviso legal</a> &nbsp;|&nbsp; <a href='/privacidad'>Privacidad</a> &nbsp;|&nbsp; <a href='/cookies'>Cookies</a></div>
+  </div>
+</footer>
+<script>document.getElementById('anio').textContent = new Date().getFullYear();</script>
+<script src="js/site.js"></script>
+<script src="js/carrito.js"></script>
+<script src="/1-security-fixes.js"></script>
+<script src="/6-app-improvements.js"></script>
+</body>
+</html>

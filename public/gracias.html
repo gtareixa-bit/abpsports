@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscripción recibida | ABP Sport Pontevedra</title>
+<meta name="description" content="Hemos recibido tu inscripción en ABP Sport Pontevedra.">
+<link rel="canonical" href="https://abpsports.es/gracias.html">
+<meta name="robots" content="noindex">
+<meta property="og:image" content="https://abpsports.es/img/color-patada-alta-infantil.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<script defer src="js/analytics.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class='logo' href='/'><img src="img/logo.png" alt="ABP Sport Pontevedra"></a>
+    <button class="menu-toggle" aria-label="Abrir menú" onclick="document.querySelector('.main-nav').classList.toggle('abierto')">☰</button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href='/'>Inicio</a></li>
+        <li><a href='/sobre-nosotros'>Sobre nosotros</a></li>
+        <li><a href='/programa-inclusivo'>Eu Sí Podo</a></li>
+        <li><a href='/sedes'>Sedes</a></li>
+        <li><a href='/disciplinas'>Disciplinas</a></li>
+        <li><a href='/horarios'>Horarios</a></li>
+        <li><a href='/tienda'>Tienda</a></li>
+        <li><a href='/contacto'>Contacto</a></li>
+        <li><a class='nav-cta' href='/inscripcion'>Inscríbete</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="contenedor" style="max-width:720px;padding:3rem 1rem;">
+  <h1>Inscripción recibida</h1>
+  <p>Gracias. Hemos registrado tu solicitud junto con la firma y los documentos aceptados.</p>
+  <p>Revisaremos los datos y te escribiremos al correo que nos has indicado para confirmarte la plaza
+     y el horario. Si en <strong>48&nbsp;horas</strong> no has recibido respuesta, escríbenos a
+     <a href="mailto:abpclub.pontevedra@gmail.com">abpclub.pontevedra@gmail.com</a> o llámanos al
+     <a href="tel:+34683626716">683&nbsp;626&nbsp;716</a>: significa que algo ha fallado y queremos saberlo.</p>
+  <p>Puedes descargar de nuevo la documentación que has aceptado:</p>
+  <ul>
+    <li><a href="docs/contrato-socio.pdf" target="_blank" rel="noopener">Contrato de socio</a></li>
+    <li><a href="docs/proteccion-datos.pdf" target="_blank" rel="noopener">Consentimiento RGPD</a></li>
+    <li><a href="docs/derechos-imagen.pdf" target="_blank" rel="noopener">Derechos de imagen</a></li>
+    <li><a href="docs/asuncion-riesgos.pdf" target="_blank" rel="noopener">Asunción de riesgos</a></li>
+  </ul>
+  <p style="margin-top:2rem;"><a class='nav-cta' href='/'>Volver al inicio</a></p>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">© <span id="anio"></span> ABP Sport. Todos los derechos reservados. &nbsp;|&nbsp; <a href='/aviso-legal'>Aviso legal</a> &nbsp;|&nbsp; <a href='/privacidad'>Privacidad</a> &nbsp;|&nbsp; <a href='/cookies'>Cookies</a></div>
+  </div>
+</footer>
+<script>document.getElementById('anio').textContent = new Date().getFullYear();</script>
+<script src="js/site.js"></script>
+<script src="js/carrito.js"></script>
+<script>
+(function(){
+  var c=document.getElementById('firma_lienzo'); if(!c) return;
+  var r=c.getBoundingClientRect(), dpr=window.devicePixelRatio||1;
+  c.width=r.width*dpr; c.height=r.height*dpr;
+  var ctx=c.getContext('2d'); ctx.scale(dpr,dpr);
+  ctx.lineWidth=2.2; ctx.lineCap='round'; ctx.lineJoin='round'; ctx.strokeStyle='#10233A';
+  var dib=false; window.firmaVacia=true;
+  function pos(e){var b=c.getBoundingClientRect(),t=e.touches?e.touches[0]:e;return [t.clientX-b.left,t.clientY-b.top];}
+  function ini(e){e.preventDefault();dib=true;window.firmaVacia=false;ctx.beginPath();var p=pos(e);ctx.moveTo(p[0],p[1]);}
+  function mov(e){if(!dib)return;e.preventDefault();var p=pos(e);ctx.lineTo(p[0],p[1]);ctx.stroke();}
+  function fin(){dib=false;}
+  ['mousedown','touchstart'].forEach(function(t){c.addEventListener(t,ini,{passive:false});});
+  ['mousemove','touchmove'].forEach(function(t){c.addEventListener(t,mov,{passive:false});});
+  ['mouseup','mouseleave','touchend','touchcancel'].forEach(function(t){c.addEventListener(t,fin);});
+  window.limpiarFirma=function(){ctx.clearRect(0,0,c.width,c.height);window.firmaVacia=true;document.getElementById('firma').value='';};
+  fetch('https://api.ipify.org?format=json').then(function(x){return x.json();})
+    .then(function(j){document.getElementById('firma_ip').value=j.ip;}).catch(function(){});
+  var form=c.closest('form');
+  form.addEventListener('submit',function(e){
+    if(window.firmaVacia){e.preventDefault();alert('Por favor, firma en el recuadro antes de enviar la inscripción.');c.scrollIntoView({behavior:'smooth',block:'center'});return false;}
+    document.getElementById('firma').value=c.toDataURL('image/png');
+    document.getElementById('firma_timestamp').value=new Date().toISOString();
+  });
+})();
+</script>
+</body>
+</html>

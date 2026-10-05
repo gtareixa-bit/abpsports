@@ -1,12 +1,16 @@
 /* ABP Sport – 6-app-improvements.js
  * Validación en tiempo real, envío con cabecera CSRF y prevención de doble envío.
  * Requiere 1-security-fixes.js cargado antes.
+ * Funciona con la función propia (fetch + CSRF) y con Netlify Forms (form[data-secure], envío nativo).
  */
 (function () {
   'use strict';
   var S = window.ABPSecurity;
   var RULES = {
     nombre: { re: /^[A-Za-zÀ-ÿñÑ' -]{2,80}$/, msg: 'Nombre no válido (2-80 letras).' },
+    alumno_nombre: { re: /^[A-Za-zÀ-ÿñÑ' -]{2,80}$/, msg: 'Nombre no válido (2-80 letras).' },
+    tutor_nombre: { re: /^[A-Za-zÀ-ÿñÑ' -]{2,80}$/, msg: 'Nombre no válido (2-80 letras).' },
+    tutor_dni: { re: /^([0-9]{8}[A-Za-z]|[XYZxyz][0-9]{7}[A-Za-z])$/, msg: 'DNI/NIE no válido.' },
     email: { re: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, msg: 'Email no válido.' },
     telefono: { re: /^\+?[0-9 ]{9,15}$/, msg: 'Teléfono no válido.' },
     edad: { test: function (v) { var n = +v; return n >= 4 && n <= 99; }, msg: 'Edad entre 4 y 99.' },
@@ -24,6 +28,10 @@
     }
     el.setAttribute('aria-invalid', ok ? 'false' : 'true');
     var span = el.parentNode && el.parentNode.querySelector('.error-message');
+    if (!span && el.parentNode && el.type !== 'checkbox') {
+      span = document.createElement('span'); span.className = 'error-message'; span.setAttribute('aria-live', 'polite');
+      el.parentNode.appendChild(span);
+    }
     if (span) span.textContent = msg;
     return ok;
   }
@@ -42,9 +50,21 @@
       el.addEventListener('input', function () { if (el.getAttribute('aria-invalid')) check(el); });
     });
 
+    var native = !/\/\.netlify\/functions\/handler/.test(form.getAttribute('action') || '');
     form.addEventListener('submit', function (e) {
+      if (form.dataset.sending === '1') { e.preventDefault(); return; }
+      var ok = true;
+      fields.forEach(function (el) { if (!check(el)) ok = false; });
+      if (native) {
+        // Netlify Forms: validar y dejar que el envío nativo siga su curso
+        if (!ok) { e.preventDefault(); return showStatus(form, 'Revisa los campos marcados.', true); }
+        if (S && S.looksLikeBot(form)) { e.preventDefault(); return showStatus(form, 'No se pudo enviar. Inténtalo de nuevo.', true); }
+        if (S && S.rateLimited()) { e.preventDefault(); return showStatus(form, 'Demasiados intentos. Espera un minuto.', true); }
+        form.dataset.sending = '1';
+        var b = form.querySelector('[type="submit"]'); if (b) b.disabled = true;
+        return;
+      }
       e.preventDefault();
-      if (form.dataset.sending === '1') return;
       var allOk = true;
       fields.forEach(function (el) { if (!check(el)) allOk = false; });
       if (!allOk) return showStatus(form, 'Revisa los campos marcados.', true);
@@ -72,6 +92,6 @@
     });
   }
 
-  function init() { document.querySelectorAll('form[action*="/.netlify/functions/handler"]').forEach(bind); }
+  function init() { document.querySelectorAll('form[action*="/.netlify/functions/handler"], form[data-secure]').forEach(bind); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
