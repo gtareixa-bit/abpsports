@@ -39,8 +39,15 @@
 - `ALLOWED_ORIGINS` (por defecto `https://abpsports.es,https://www.abpsports.es`)
 - `DISCIPLINAS` (lista separada por comas)
 
-## Antes de hacer merge
-- Verificar que la CSP no bloquea scripts/estilos inline actuales (consola → `[CSP] bloqueado`).
-- Si `netlify.toml` del sitio ya existe en otro repo/config, fusionar las cabeceras.
-- El rate limit en memoria es por instancia; para límite estricto usar Netlify Blobs/Upstash.
-- Conectar el `TODO` de notificación (Resend/SendGrid) y cumplir RGPD (no loguear datos personales).
+## Estado de la integración (rama security)
+- `public/` contiene el sitio completo (copia del deploy en producción del 05/10/2026).
+- `inscripcion.html` y `contacto.html` cargan los dos scripts; sus formularios llevan `data-secure` y siguen usando **Netlify Forms** (validación y antibots en cliente + honeypot de Netlify).
+- `handler.js` queda disponible para cuando se quiera una función propia (`action="/.netlify/functions/handler?action=..."`); hoy no lo usa ningún formulario.
+- CSP permite `'unsafe-inline'` en scripts porque las páginas usan `<script>` inline y `onchange`. Quitarlo exige mover ese código a archivos `.js`.
+- `/inscripcion-legal` redirige temporalmente (302) a `/inscripcion#reserva` hasta que exista esa página.
+
+## Pendiente
+- Crear la página de inscripción legal online (contrato + DNI) o cambiar el botón.
+- Subir los PDF de `docs/` (enlazados en `gracias.html`, hoy dan 404).
+- El sitio se publica por subida manual: conectar este repo en Netlify (rama `main`, publish `public`) para que el merge despliegue.
+- Activar en Netlify > Forms las notificaciones por email.
