@@ -44,10 +44,11 @@
 - `inscripcion.html` y `contacto.html` cargan los dos scripts; sus formularios llevan `data-secure` y siguen usando **Netlify Forms** (validación y antibots en cliente + honeypot de Netlify).
 - `handler.js` queda disponible para cuando se quiera una función propia (`action="/.netlify/functions/handler?action=..."`); hoy no lo usa ningún formulario.
 - CSP permite `'unsafe-inline'` en scripts porque las páginas usan `<script>` inline y `onchange`. Quitarlo exige mover ese código a archivos `.js`.
-- `/inscripcion-legal` redirige temporalmente (302) a `/inscripcion#reserva` hasta que exista esa página.
+- `/inscripcion-legal` restaurada desde el sitio antiguo (abpsports.netlify.app) y migrada de Formspree a Netlify Forms (formulario `inscripcion-legal`, con adjuntos; máx. 8 MB por envío). Contrato firmado opcional; DNI obligatorio. Eliminado el enlace PayPal sin configurar.
+- `gracias.html`: los 4 PDF no existen; los enlaces se sustituyen por un aviso de entrega en recepción.
 
 ## Pendiente
-- Crear la página de inscripción legal online (contrato + DNI) o cambiar el botón.
-- Subir los PDF de `docs/` (enlazados en `gracias.html`, hoy dan 404).
+- Redactar/subir los PDF de `docs/` y restaurar sus enlaces en `gracias.html` e `inscripcion-legal.html`.
+- Revisar RGPD: las fotos de DNI quedan guardadas en Netlify Forms (proveedor de EE. UU.).
 - El sitio se publica por subida manual: conectar este repo en Netlify (rama `main`, publish `public`) para que el merge despliegue.
 - Activar en Netlify > Forms las notificaciones por email.

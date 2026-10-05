@@ -6,13 +6,6 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
-# El botón "Inscribirme online" apunta a /inscripcion-legal, que aún no existe.
-# Redirección temporal (302) al formulario de reserva hasta crear esa página.
-[[redirects]]
-  from = "/inscripcion-legal"
-  to = "/inscripcion#reserva"
-  status = 302
-
 [[headers]]
   for = "/*"
   [headers.values]
